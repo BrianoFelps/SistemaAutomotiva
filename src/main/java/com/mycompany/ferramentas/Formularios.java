@@ -4,9 +4,18 @@
  */
 package com.mycompany.ferramentas;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author brian.7908
  */
 public class Formularios {
+    
+    //
+    public static JFrame CadCidade;
+    public static JFrame ListCidade;
+    public static JFrame CadEndereco;
+    public static JFrame ListEndereco;
+    //
 }
