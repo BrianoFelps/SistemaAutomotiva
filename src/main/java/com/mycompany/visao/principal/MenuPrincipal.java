@@ -12,6 +12,8 @@ import com.mycompany.visao.endereco.CadEndereco;
 import com.mycompany.visao.endereco.ListEndereco;
 import com.mycompany.visao.funcao.CadFuncao;
 import com.mycompany.visao.funcao.ListFuncao;
+import com.mycompany.visao.funcionario.CadFuncionario;
+import com.mycompany.visao.funcionario.ListFuncionario;
 import com.mycompany.visao.pessoa.CadPessoa;
 import com.mycompany.visao.pessoa.ListPessoa;
 import javax.swing.JOptionPane;
@@ -54,16 +56,19 @@ public class MenuPrincipal extends javax.swing.JFrame {
         CadEnd = new javax.swing.JMenuItem();
         CadPessoa = new javax.swing.JMenuItem();
         CadFuncao = new javax.swing.JMenuItem();
+        CadFuncionario = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         ListCid = new javax.swing.JMenuItem();
         ListEnd = new javax.swing.JMenuItem();
         ListPessoa = new javax.swing.JMenuItem();
         ListFuncao = new javax.swing.JMenuItem();
+        ListFuncionario = new javax.swing.JMenuItem();
         jMoS = new javax.swing.JMenu();
         jMorc = new javax.swing.JMenu();
         jMagen = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Tela principal");
 
         jPanel1.setBackground(java.awt.Color.black);
         jPanel1.setForeground(java.awt.Color.black);
@@ -117,6 +122,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
         jMenu1.add(CadFuncao);
 
+        CadFuncionario.setText("Funcionário");
+        CadFuncionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CadFuncionarioActionPerformed(evt);
+            }
+        });
+        jMenu1.add(CadFuncionario);
+
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Listagem");
@@ -153,6 +166,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
         jMenu2.add(ListFuncao);
 
+        ListFuncionario.setText("Funcionário");
+        ListFuncionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ListFuncionarioActionPerformed(evt);
+            }
+        });
+        jMenu2.add(ListFuncionario);
+
         jMenuBar1.add(jMenu2);
 
         jMoS.setText("Ordem de Serviço");
@@ -180,7 +201,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -267,6 +288,22 @@ public class MenuPrincipal extends javax.swing.JFrame {
         Formularios.ListFuncao.setVisible(true);
     }//GEN-LAST:event_ListFuncaoActionPerformed
 
+    private void CadFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadFuncionarioActionPerformed
+        // TODO add your handling code here:
+        if(Formularios.CadFuncionario == null)
+            Formularios.CadFuncionario = new CadFuncionario();
+        
+        Formularios.CadFuncionario.setVisible(true);
+    }//GEN-LAST:event_CadFuncionarioActionPerformed
+
+    private void ListFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListFuncionarioActionPerformed
+        // TODO add your handling code here:
+        if(Formularios.listFuncionario == null)
+            Formularios.listFuncionario = new ListFuncionario();
+        
+        Formularios.listFuncionario.setVisible(true);
+    }//GEN-LAST:event_ListFuncionarioActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -307,10 +344,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem CadCid;
     private javax.swing.JMenuItem CadEnd;
     private javax.swing.JMenuItem CadFuncao;
+    private javax.swing.JMenuItem CadFuncionario;
     private javax.swing.JMenuItem CadPessoa;
     private javax.swing.JMenuItem ListCid;
     private javax.swing.JMenuItem ListEnd;
     private javax.swing.JMenuItem ListFuncao;
+    private javax.swing.JMenuItem ListFuncionario;
     private javax.swing.JMenuItem ListPessoa;
     private javax.swing.JMenu jMagen;
     private javax.swing.JMenu jMenu1;

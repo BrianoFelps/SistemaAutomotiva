@@ -113,7 +113,7 @@ public class ListFuncao extends javax.swing.JFrame {
         btnBuscar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Listagem de função");
+        setTitle("Listagem de funções");
 
         jPanel1.setBackground(new java.awt.Color(153, 0, 51));
 
