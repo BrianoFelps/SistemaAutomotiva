@@ -24,5 +24,12 @@ public class Formularios {
     public static JFrame ListFuncao;
     public static JFrame CadFuncionario;
     public static JFrame listFuncionario;
+    public static JFrame CadEmpresa;
+    public static JFrame ListEmpresa;
+    public static JFrame CadMarca;
+    public static JFrame ListMarca;
+    public static JFrame CadGpServico;
+    public static JFrame ListGpServico;
+    
     //
 }

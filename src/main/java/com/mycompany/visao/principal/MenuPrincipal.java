@@ -8,6 +8,8 @@ import com.mycompany.ferramentas.BancoDeDadosMySQL;
 import com.mycompany.ferramentas.Formularios;
 import com.mycompany.visao.cidade.CadCidade;
 import com.mycompany.visao.cidade.ListCidade;
+import com.mycompany.visao.empresa.CadEmpresa;
+import com.mycompany.visao.empresa.ListEmpresa;
 import com.mycompany.visao.endereco.CadEndereco;
 import com.mycompany.visao.endereco.ListEndereco;
 import com.mycompany.visao.funcao.CadFuncao;
@@ -57,12 +59,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
         CadPessoa = new javax.swing.JMenuItem();
         CadFuncao = new javax.swing.JMenuItem();
         CadFuncionario = new javax.swing.JMenuItem();
+        CadEmpresa = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         ListCid = new javax.swing.JMenuItem();
         ListEnd = new javax.swing.JMenuItem();
         ListPessoa = new javax.swing.JMenuItem();
         ListFuncao = new javax.swing.JMenuItem();
         ListFuncionario = new javax.swing.JMenuItem();
+        ListEmpresa = new javax.swing.JMenuItem();
         jMoS = new javax.swing.JMenu();
         jMorc = new javax.swing.JMenu();
         jMagen = new javax.swing.JMenu();
@@ -130,6 +134,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
         jMenu1.add(CadFuncionario);
 
+        CadEmpresa.setText("Empresa");
+        CadEmpresa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CadEmpresaActionPerformed(evt);
+            }
+        });
+        jMenu1.add(CadEmpresa);
+
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Listagem");
@@ -173,6 +185,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
             }
         });
         jMenu2.add(ListFuncionario);
+
+        ListEmpresa.setText("Empresa");
+        ListEmpresa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ListEmpresaActionPerformed(evt);
+            }
+        });
+        jMenu2.add(ListEmpresa);
 
         jMenuBar1.add(jMenu2);
 
@@ -304,6 +324,22 @@ public class MenuPrincipal extends javax.swing.JFrame {
         Formularios.listFuncionario.setVisible(true);
     }//GEN-LAST:event_ListFuncionarioActionPerformed
 
+    private void CadEmpresaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadEmpresaActionPerformed
+        // TODO add your handling code here:
+        if(Formularios.CadEmpresa == null)
+            Formularios.CadEmpresa = new CadEmpresa();
+        
+        Formularios.CadEmpresa.setVisible(true);
+    }//GEN-LAST:event_CadEmpresaActionPerformed
+
+    private void ListEmpresaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListEmpresaActionPerformed
+        // TODO add your handling code here:
+         if(Formularios.ListEmpresa == null)
+            Formularios.ListEmpresa = new ListEmpresa();
+        
+        Formularios.ListEmpresa.setVisible(true);
+    }//GEN-LAST:event_ListEmpresaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -342,11 +378,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem CadCid;
+    private javax.swing.JMenuItem CadEmpresa;
     private javax.swing.JMenuItem CadEnd;
     private javax.swing.JMenuItem CadFuncao;
     private javax.swing.JMenuItem CadFuncionario;
     private javax.swing.JMenuItem CadPessoa;
     private javax.swing.JMenuItem ListCid;
+    private javax.swing.JMenuItem ListEmpresa;
     private javax.swing.JMenuItem ListEnd;
     private javax.swing.JMenuItem ListFuncao;
     private javax.swing.JMenuItem ListFuncionario;
