@@ -8,9 +8,10 @@ import com.mycompany.ferramentas.BancoDeDadosMySQL;
 import com.mycompany.ferramentas.Formularios;
 import com.mycompany.visao.cidade.CadCidade;
 import com.mycompany.visao.cidade.ListCidade;
-import com.mycompany.visao.cliente.ListCliente;
 import com.mycompany.visao.endereco.CadEndereco;
 import com.mycompany.visao.endereco.ListEndereco;
+import com.mycompany.visao.funcao.CadFuncao;
+import com.mycompany.visao.funcao.ListFuncao;
 import com.mycompany.visao.pessoa.CadPessoa;
 import com.mycompany.visao.pessoa.ListPessoa;
 import javax.swing.JOptionPane;
@@ -52,11 +53,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
         CadCid = new javax.swing.JMenuItem();
         CadEnd = new javax.swing.JMenuItem();
         CadPessoa = new javax.swing.JMenuItem();
+        CadFuncao = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         ListCid = new javax.swing.JMenuItem();
         ListEnd = new javax.swing.JMenuItem();
         ListPessoa = new javax.swing.JMenuItem();
-        ListCliente = new javax.swing.JMenuItem();
+        ListFuncao = new javax.swing.JMenuItem();
         jMoS = new javax.swing.JMenu();
         jMorc = new javax.swing.JMenu();
         jMagen = new javax.swing.JMenu();
@@ -107,6 +109,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
         jMenu1.add(CadPessoa);
 
+        CadFuncao.setText("Função");
+        CadFuncao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CadFuncaoActionPerformed(evt);
+            }
+        });
+        jMenu1.add(CadFuncao);
+
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Listagem");
@@ -135,13 +145,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
         jMenu2.add(ListPessoa);
 
-        ListCliente.setText("Clientes");
-        ListCliente.addActionListener(new java.awt.event.ActionListener() {
+        ListFuncao.setText("Função");
+        ListFuncao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ListClienteActionPerformed(evt);
+                ListFuncaoActionPerformed(evt);
             }
         });
-        jMenu2.add(ListCliente);
+        jMenu2.add(ListFuncao);
 
         jMenuBar1.add(jMenu2);
 
@@ -241,13 +251,21 @@ public class MenuPrincipal extends javax.swing.JFrame {
         Formularios.ListPessoa.setVisible(true);
     }//GEN-LAST:event_ListPessoaActionPerformed
 
-    private void ListClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListClienteActionPerformed
+    private void CadFuncaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadFuncaoActionPerformed
         // TODO add your handling code here:
-         if(Formularios.ListCliente == null)
-            Formularios.ListCliente = new ListCliente();
+        if(Formularios.CadFuncao == null)
+            Formularios.CadFuncao = new CadFuncao();
         
-        Formularios.ListCliente.setVisible(true);
-    }//GEN-LAST:event_ListClienteActionPerformed
+        Formularios.CadFuncao.setVisible(true);
+    }//GEN-LAST:event_CadFuncaoActionPerformed
+
+    private void ListFuncaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListFuncaoActionPerformed
+        // TODO add your handling code here:
+        if(Formularios.ListFuncao == null)
+            Formularios.ListFuncao = new ListFuncao();
+        
+        Formularios.ListFuncao.setVisible(true);
+    }//GEN-LAST:event_ListFuncaoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -288,10 +306,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem CadCid;
     private javax.swing.JMenuItem CadEnd;
+    private javax.swing.JMenuItem CadFuncao;
     private javax.swing.JMenuItem CadPessoa;
     private javax.swing.JMenuItem ListCid;
-    private javax.swing.JMenuItem ListCliente;
     private javax.swing.JMenuItem ListEnd;
+    private javax.swing.JMenuItem ListFuncao;
     private javax.swing.JMenuItem ListPessoa;
     private javax.swing.JMenu jMagen;
     private javax.swing.JMenu jMenu1;
