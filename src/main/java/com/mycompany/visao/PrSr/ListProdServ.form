@@ -86,23 +86,52 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JTable" name="tableVeiculo">
+            <Component class="javax.swing.JTable" name="tableProdServ">
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                   <Table columnCount="5" rowCount="0">
                     <Column editable="false" title="ID" type="java.lang.Object"/>
-                    <Column editable="false" title="Marca" type="java.lang.Object"/>
-                    <Column editable="false" title="Nome" type="java.lang.Object"/>
-                    <Column editable="false" title="Placa" type="java.lang.Object"/>
-                    <Column editable="false" title="Ano" type="java.lang.Object"/>
+                    <Column editable="false" title="Grupo de servi&#xe7;o" type="java.lang.Object"/>
+                    <Column editable="false" title="Produto/servi&#xe7;o" type="java.lang.Object"/>
+                    <Column editable="false" title="Descri&#xe7;&#xe3;o" type="java.lang.Object"/>
+                    <Column editable="false" title="Pre&#xe7;o" type="java.lang.Object"/>
                   </Table>
+                </Property>
+                <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+                  <TableColumnModel selectionModel="0">
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                  </TableColumnModel>
                 </Property>
                 <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
                   <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tableVeiculoMouseClicked"/>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tableProdServMouseClicked"/>
               </Events>
             </Component>
           </SubComponents>
@@ -113,10 +142,10 @@
               <StringArray count="6">
                 <StringItem index="0" value="Todos"/>
                 <StringItem index="1" value="ID"/>
-                <StringItem index="2" value="Marca"/>
-                <StringItem index="3" value="Nome"/>
-                <StringItem index="4" value="Placa"/>
-                <StringItem index="5" value="Ano"/>
+                <StringItem index="2" value="Grupo de servi&#xe7;o"/>
+                <StringItem index="3" value="Produto/servi&#xe7;o"/>
+                <StringItem index="4" value="Descri&#xe7;&#xe3;o"/>
+                <StringItem index="5" value="Pre&#xe7;o"/>
               </StringArray>
             </Property>
           </Properties>

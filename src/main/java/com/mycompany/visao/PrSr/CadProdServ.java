@@ -32,7 +32,7 @@ public class CadProdServ extends javax.swing.JFrame {
             
             int id = daoPs.buscarProximoId();
             if(id>0)
-            tfId.setText(String.valueOf(id);
+            tfId.setText(String.valueOf(id));
             
             btnAcao.setText(Constantes.BTN_SALVAR_TEXT);
             btnExcluir.setVisible(false);

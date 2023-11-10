@@ -4,6 +4,13 @@
  */
 package com.mycompany.visao.PrSr;
 
+import com.mycompany.dao.DaoGpServico;
+import com.mycompany.dao.DaoPrSr;
+import com.mycompany.ferramentas.DadosTemporarios;
+import com.mycompany.modelo.ModPrSr;
+import java.sql.ResultSet;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author brian.7908
@@ -15,8 +22,169 @@ public class ListProdServ extends javax.swing.JFrame {
      */
     public ListProdServ() {
         initComponents();
+        
+        setLocationRelativeTo(null);
+        
+        listarTodos();
     }
 
+    public void listarTodos(){
+        try{
+             DefaultTableModel dtm = (DefaultTableModel) tableProdServ.getModel();
+            
+             tableProdServ.setModel(dtm);
+            
+             DaoPrSr daoP = new DaoPrSr();
+            
+             ResultSet resultset = daoP.listarTodos();
+            
+            dtm.setRowCount(0);
+            
+            while (resultset.next()){
+                String id = resultset.getString(1);
+                String gp = resultset.getString(2);
+                String nm = resultset.getString(3);
+                String desc = resultset.getString(4);
+                String val = resultset.getString(5);
+                
+                dtm.addRow(new Object[] {id, gp, nm, desc, val});
+            }
+        } catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public void listarPorId(int pId){
+        try{
+            DefaultTableModel dtm = (DefaultTableModel) tableProdServ.getModel();
+            
+             tableProdServ.setModel(dtm);
+            
+             DaoPrSr daoP = new DaoPrSr();
+            
+             ResultSet resultset = daoP.listarPorId(pId);
+            
+            dtm.setRowCount(0);
+            
+            while (resultset.next()){
+                String id = resultset.getString(1);
+                String gp = resultset.getString(2);
+                String nm = resultset.getString(3);
+                String desc = resultset.getString(4);
+                String val = resultset.getString(5);
+                
+                dtm.addRow(new Object[] {id, gp, nm, desc, val});
+            }
+        } catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+        }
+    
+    public void listarPorGrupo(String pGp){
+        try{
+             DefaultTableModel dtm = (DefaultTableModel) tableProdServ.getModel();
+            
+             tableProdServ.setModel(dtm);
+            
+             DaoPrSr daoP = new DaoPrSr();
+            
+             ResultSet resultset = daoP.listarPorGrupo(pGp);
+            
+            dtm.setRowCount(0);
+            
+            while (resultset.next()){
+                String id = resultset.getString(1);
+                String gp = resultset.getString(2);
+                String nm = resultset.getString(3);
+                String desc = resultset.getString(4);
+                String val = resultset.getString(5);
+                
+                dtm.addRow(new Object[] {id, gp, nm, desc, val});
+            }
+        } catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    public void listarPorNome(String pNome){
+        try{
+             DefaultTableModel dtm = (DefaultTableModel) tableProdServ.getModel();
+            
+             tableProdServ.setModel(dtm);
+            
+             DaoPrSr daoP = new DaoPrSr();
+            
+             ResultSet resultset = daoP.listarPorNome(pNome);
+            
+            dtm.setRowCount(0);
+            
+            while (resultset.next()){
+                String id = resultset.getString(1);
+                String gp = resultset.getString(2);
+                String nm = resultset.getString(3);
+                String desc = resultset.getString(4);
+                String val = resultset.getString(5);
+                
+                dtm.addRow(new Object[] {id, gp, nm, desc, val});
+            }
+        } catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    public void listarPorDesc(String pdesc){
+    try{
+             DefaultTableModel dtm = (DefaultTableModel) tableProdServ.getModel();
+            
+             tableProdServ.setModel(dtm);
+            
+             DaoPrSr daoP = new DaoPrSr();
+            
+             ResultSet resultset = daoP.listarPorDescricao(pdesc);
+            
+            dtm.setRowCount(0);
+            
+            while (resultset.next()){
+                String id = resultset.getString(1);
+                String gp = resultset.getString(2);
+                String nm = resultset.getString(3);
+                String desc = resultset.getString(4);
+                String val = resultset.getString(5);
+                
+                dtm.addRow(new Object[] {id, gp, nm, desc, val});
+            }
+        } catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    public void listarPorPreco(Double pPreco){
+    try{
+             DefaultTableModel dtm = (DefaultTableModel) tableProdServ.getModel();
+            
+             tableProdServ.setModel(dtm);
+            
+             DaoPrSr daoP = new DaoPrSr();
+            
+             ResultSet resultset = daoP.listarPorPreco(String.valueOf(pPreco));
+            
+            dtm.setRowCount(0);
+            
+            while (resultset.next()){
+                String id = resultset.getString(1);
+                String gp = resultset.getString(2);
+                String nm = resultset.getString(3);
+                String desc = resultset.getString(4);
+                String val = resultset.getString(5);
+                
+                dtm.addRow(new Object[] {id, gp, nm, desc, val});
+            }
+        } catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -28,7 +196,7 @@ public class ListProdServ extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tableVeiculo = new javax.swing.JTable();
+        tableProdServ = new javax.swing.JTable();
         jcbTipoFiltro = new javax.swing.JComboBox<>();
         tfFiltro = new javax.swing.JTextField();
         btnBuscar = new javax.swing.JButton();
@@ -37,12 +205,12 @@ public class ListProdServ extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(153, 0, 51));
 
-        tableVeiculo.setModel(new javax.swing.table.DefaultTableModel(
+        tableProdServ.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "ID", "Marca", "Nome", "Placa", "Ano"
+                "ID", "Grupo de serviço", "Produto/serviço", "Descrição", "Preço"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -53,14 +221,14 @@ public class ListProdServ extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        tableVeiculo.addMouseListener(new java.awt.event.MouseAdapter() {
+        tableProdServ.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tableVeiculoMouseClicked(evt);
+                tableProdServMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(tableVeiculo);
+        jScrollPane1.setViewportView(tableProdServ);
 
-        jcbTipoFiltro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "ID", "Marca", "Nome", "Placa", "Ano" }));
+        jcbTipoFiltro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "ID", "Grupo de serviço", "Produto/serviço", "Descrição", "Preço" }));
         jcbTipoFiltro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jcbTipoFiltroActionPerformed(evt);
@@ -125,35 +293,35 @@ public class ListProdServ extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void tableVeiculoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableVeiculoMouseClicked
+    private void tableProdServMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableProdServMouseClicked
         try{
             if (evt.getClickCount() == 2){
-                ModVeiculo modV = new ModVeiculo ();
+                ModPrSr modP = new ModPrSr ();
 
-                modV.setId(Integer.parseInt(String.valueOf(tableVeiculo.getValueAt(tableVeiculo.getSelectedRow(), 0))));
-                modV.setNome(String.valueOf(tableVeiculo.getValueAt(tableVeiculo.getSelectedRow(), 2)));
-                modV.setPlaca(String.valueOf(tableVeiculo.getValueAt(tableVeiculo.getSelectedRow(), 3)));
-                modV.setAno(Integer.parseInt(String.valueOf(tableVeiculo.getValueAt(tableVeiculo.getSelectedRow(), 4))));
+                modP.setId(Integer.parseInt(String.valueOf(tableProdServ.getValueAt(tableProdServ.getSelectedRow(), 0))));
+                modP.setNome(String.valueOf(tableProdServ.getValueAt(tableProdServ.getSelectedRow(), 2)));
+                modP.setDescricao(String.valueOf(tableProdServ.getValueAt(tableProdServ.getSelectedRow(), 3)));
+                modP.setPreco(Double.valueOf(String.valueOf(tableProdServ.getValueAt(tableProdServ.getSelectedRow(), 4))));
 
-                DaoMarca daoM = new DaoMarca();
-                ResultSet resultset = daoM.listarPorNome(String.valueOf(tableVeiculo.getValueAt(tableVeiculo.getSelectedRow(), 1)));
+                DaoGpServico daoG = new DaoGpServico();
+                ResultSet resultset = daoG.listarPorNome(String.valueOf(tableProdServ.getValueAt(tableProdServ.getSelectedRow(), 1)));
 
-                int idMar = -1;
+                int idGs = -1;
 
                 while(resultset.next())
-                idMar = resultset.getInt("ID");
+                idGs = resultset.getInt("ID");
 
-                modV.setIdMar(idMar);
+                modP.setIdGrupo(idGs);
 
-                DadosTemporarios.tempObject = (ModVeiculo) modV;
+                DadosTemporarios.tempObject = (ModPrSr) modP;
 
-                CadVeiculo cadV = new CadVeiculo();
-                cadV.setVisible(true);
+                CadProdServ cadP = new CadProdServ();
+                cadP.setVisible(true);
             }
         }   catch (Exception e){
             System.err.println(e.getMessage());
         }
-    }//GEN-LAST:event_tableVeiculoMouseClicked
+    }//GEN-LAST:event_tableProdServMouseClicked
 
     private void jcbTipoFiltroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbTipoFiltroActionPerformed
         // TODO add your handling code here:
@@ -173,16 +341,16 @@ public class ListProdServ extends javax.swing.JFrame {
             listarPorId(Integer.parseInt(tfFiltro.getText()));
             break;
             case 2:
-            listarPorMarca(tfFiltro.getText());
+            listarPorGrupo(tfFiltro.getText());
             break;
             case 3:
             listarPorNome(tfFiltro.getText());
             break;
             case 4:
-            listarPorPlaca(tfFiltro.getText());
+            listarPorDesc(tfFiltro.getText());
             break;
             case 5:
-            listarPorAno(Integer.parseInt(tfFiltro.getText()));
+            listarPorPreco(Double.valueOf(tfFiltro.getText()));
             break;
         }
     }//GEN-LAST:event_btnBuscarActionPerformed
@@ -227,7 +395,7 @@ public class ListProdServ extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JComboBox<String> jcbTipoFiltro;
-    private javax.swing.JTable tableVeiculo;
+    private javax.swing.JTable tableProdServ;
     private javax.swing.JTextField tfFiltro;
     // End of variables declaration//GEN-END:variables
 }
