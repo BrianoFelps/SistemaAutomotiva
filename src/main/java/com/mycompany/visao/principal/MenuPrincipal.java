@@ -16,6 +16,8 @@ import com.mycompany.visao.funcao.CadFuncao;
 import com.mycompany.visao.funcao.ListFuncao;
 import com.mycompany.visao.funcionario.CadFuncionario;
 import com.mycompany.visao.funcionario.ListFuncionario;
+import com.mycompany.visao.gpServico.CadGpServico;
+import com.mycompany.visao.gpServico.ListGpServico;
 import com.mycompany.visao.marca.CadMarca;
 import com.mycompany.visao.marca.ListMarca;
 import com.mycompany.visao.pessoa.CadPessoa;
@@ -63,6 +65,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         CadFuncionario = new javax.swing.JMenuItem();
         CadEmpresa = new javax.swing.JMenuItem();
         CadMarca = new javax.swing.JMenuItem();
+        cadGpSer = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         ListCid = new javax.swing.JMenuItem();
         ListEnd = new javax.swing.JMenuItem();
@@ -71,6 +74,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         ListFuncionario = new javax.swing.JMenuItem();
         ListEmpresa = new javax.swing.JMenuItem();
         listMarca = new javax.swing.JMenuItem();
+        listGpSer = new javax.swing.JMenuItem();
         jMoS = new javax.swing.JMenu();
         jMorc = new javax.swing.JMenu();
         jMagen = new javax.swing.JMenu();
@@ -154,6 +158,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
         jMenu1.add(CadMarca);
 
+        cadGpSer.setText("Grupo de serviço");
+        cadGpSer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cadGpSerActionPerformed(evt);
+            }
+        });
+        jMenu1.add(cadGpSer);
+
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Listagem");
@@ -213,6 +225,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
             }
         });
         jMenu2.add(listMarca);
+
+        listGpSer.setText("Grupo de serviço");
+        listGpSer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                listGpSerActionPerformed(evt);
+            }
+        });
+        jMenu2.add(listGpSer);
 
         jMenuBar1.add(jMenu2);
 
@@ -376,6 +396,22 @@ public class MenuPrincipal extends javax.swing.JFrame {
         Formularios.ListMarca.setVisible(true);
     }//GEN-LAST:event_listMarcaActionPerformed
 
+    private void cadGpSerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadGpSerActionPerformed
+        // TODO add your handling code here:
+        if(Formularios.CadGpServico == null)
+        Formularios.CadGpServico = new CadGpServico();
+
+        Formularios.CadGpServico.setVisible(true);
+    }//GEN-LAST:event_cadGpSerActionPerformed
+
+    private void listGpSerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listGpSerActionPerformed
+        // TODO add your handling code here:
+        if(Formularios.ListGpServico == null)
+        Formularios.ListGpServico = new ListGpServico();
+
+        Formularios.ListGpServico.setVisible(true);
+    }//GEN-LAST:event_listGpSerActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -426,6 +462,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem ListFuncao;
     private javax.swing.JMenuItem ListFuncionario;
     private javax.swing.JMenuItem ListPessoa;
+    private javax.swing.JMenuItem cadGpSer;
     private javax.swing.JMenu jMagen;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
@@ -433,6 +470,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMoS;
     private javax.swing.JMenu jMorc;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JMenuItem listGpSer;
     private javax.swing.JMenuItem listMarca;
     // End of variables declaration//GEN-END:variables
 }

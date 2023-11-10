@@ -4,6 +4,14 @@
  */
 package com.mycompany.visao.gpServico;
 
+import com.mycompany.dao.DaoGpServico;
+import com.mycompany.ferramentas.Constantes;
+import com.mycompany.ferramentas.DadosTemporarios;
+import com.mycompany.ferramentas.Formularios;
+import com.mycompany.modelo.ModGpServico;
+import javax.swing.JOptionPane;
+import jdk.dynalink.linker.support.Guards;
+
 /**
  *
  * @author brian.7908
@@ -15,7 +23,86 @@ public class CadGpServico extends javax.swing.JFrame {
      */
     public CadGpServico() {
         initComponents();
+        
+        if (!existeDadosTemporarios()) {
+            DaoGpServico daoGs = new DaoGpServico();
+            
+            int id = daoGs.buscarProximoId();
+            if(id>0)
+                tfId.setText(String.valueOf(id));
+            
+            btnAcao.setText(Constantes.BTN_SALVAR_TEXT);
+            btnExcluir.setVisible(false);
+        }else{
+            btnAcao.setText(Constantes.BTN_ALTERAR_TEXT);
+            btnExcluir.setVisible(true);
+        }
+        setLocationRelativeTo(null);
+        
+        tfId.setEnabled(false);
+ }
+    
+    private Boolean existeDadosTemporarios(){
+        if(DadosTemporarios.tempObject instanceof ModGpServico){
+            int id = ((ModGpServico)DadosTemporarios.tempObject).getId();
+            String nome = ((ModGpServico)DadosTemporarios.tempObject).getNome();
+            
+            tfId.setText(String.valueOf(id));
+            tfGpSer.setText(nome);
+            
+            DadosTemporarios.tempObject = null;
+            
+            return true;
+        }else
+            return false;
     }
+    
+    private void inserir(){
+            DaoGpServico daoG = new DaoGpServico();
+            
+            if (daoG.inserir(Integer.parseInt(tfId.getText()), tfGpSer.getText())){
+                JOptionPane.showMessageDialog(null, "Grupo salvo com sucesso!");
+            
+                tfId.setText("" + daoG.buscarProximoId());
+                tfGpSer.setText(" ");
+            }else{
+                JOptionPane.showMessageDialog(null, "Não foi possível salvar o grupo!");
+            }
+        }
+        
+        private void alterar(){
+            DaoGpServico daoG = new DaoGpServico();
+            
+            if (daoG.alterar(Integer.parseInt(tfId.getText()), tfGpSer.getText())){
+                JOptionPane.showMessageDialog(null, "Cidade alterada com sucesso!");
+            
+                tfId.setText (" ");
+                tfGpSer.setText(" ");
+            }else{
+                JOptionPane.showMessageDialog(null, "Não foi possível alterar a cidade!");
+            }
+            
+            ((ListGpServico) Formularios.ListGpServico).listarTodos();
+            
+            dispose();
+        }
+        
+        private void excluir(){
+            DaoGpServico daoG = new DaoGpServico();
+            
+            if (daoG.excluir(Integer.parseInt(tfId.getText()))){
+                JOptionPane.showMessageDialog(null, "Grupo " + tfGpSer.getText() + " excluído com sucesso!");
+            
+                tfId.setText ("");
+                tfGpSer.setText("");
+            }else{
+                JOptionPane.showMessageDialog(null, "Não foi possível excluir o grupo!");
+            }
+            
+            ((ListGpServico) Formularios.ListGpServico).listarTodos();
+            
+            dispose();
+        }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -26,21 +113,106 @@ public class CadGpServico extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        tfId = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        tfGpSer = new javax.swing.JTextField();
+        btnExcluir = new javax.swing.JButton();
+        btnAcao = new javax.swing.JButton();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Cadastro de grupos de serviço");
+
+        jPanel1.setBackground(new java.awt.Color(153, 0, 51));
+
+        jLabel1.setText("ID");
+
+        jLabel2.setText("Grupo de serviço");
+
+        btnExcluir.setText("Excluir");
+        btnExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExcluirActionPerformed(evt);
+            }
+        });
+
+        btnAcao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAcaoActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2)
+                            .addComponent(tfId, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(tfGpSer, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(btnExcluir)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 212, Short.MAX_VALUE)
+                                .addComponent(btnAcao)))
+                        .addGap(18, 18, 18))))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(12, 12, 12)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(tfId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(tfGpSer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnExcluir)
+                    .addComponent(btnAcao))
+                .addGap(15, 15, 15))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
+        // TODO add your handling code here:
+        int escolha =
+        JOptionPane.showConfirmDialog(null, "Deseja realmente excluir o grupo de serviço" + tfGpSer.getText() + "?");
+
+        if (escolha == JOptionPane.YES_OPTION)
+        excluir();
+    }//GEN-LAST:event_btnExcluirActionPerformed
+
+    private void btnAcaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcaoActionPerformed
+        // TODO add your handling code here:
+        if (btnAcao.getText().equals(Constantes.BTN_SALVAR_TEXT))
+        inserir();
+        else if (btnAcao.getText().equals(Constantes.BTN_ALTERAR_TEXT))
+        alterar();
+    }//GEN-LAST:event_btnAcaoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +250,12 @@ public class CadGpServico extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAcao;
+    private javax.swing.JButton btnExcluir;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField tfGpSer;
+    private javax.swing.JTextField tfId;
     // End of variables declaration//GEN-END:variables
 }
