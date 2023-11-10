@@ -16,6 +16,8 @@ import com.mycompany.visao.funcao.CadFuncao;
 import com.mycompany.visao.funcao.ListFuncao;
 import com.mycompany.visao.funcionario.CadFuncionario;
 import com.mycompany.visao.funcionario.ListFuncionario;
+import com.mycompany.visao.marca.CadMarca;
+import com.mycompany.visao.marca.ListMarca;
 import com.mycompany.visao.pessoa.CadPessoa;
 import com.mycompany.visao.pessoa.ListPessoa;
 import javax.swing.JOptionPane;
@@ -60,6 +62,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         CadFuncao = new javax.swing.JMenuItem();
         CadFuncionario = new javax.swing.JMenuItem();
         CadEmpresa = new javax.swing.JMenuItem();
+        CadMarca = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         ListCid = new javax.swing.JMenuItem();
         ListEnd = new javax.swing.JMenuItem();
@@ -67,6 +70,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         ListFuncao = new javax.swing.JMenuItem();
         ListFuncionario = new javax.swing.JMenuItem();
         ListEmpresa = new javax.swing.JMenuItem();
+        listMarca = new javax.swing.JMenuItem();
         jMoS = new javax.swing.JMenu();
         jMorc = new javax.swing.JMenu();
         jMagen = new javax.swing.JMenu();
@@ -142,6 +146,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
         jMenu1.add(CadEmpresa);
 
+        CadMarca.setText("Marca");
+        CadMarca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CadMarcaActionPerformed(evt);
+            }
+        });
+        jMenu1.add(CadMarca);
+
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Listagem");
@@ -193,6 +205,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
             }
         });
         jMenu2.add(ListEmpresa);
+
+        listMarca.setText("Marca");
+        listMarca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                listMarcaActionPerformed(evt);
+            }
+        });
+        jMenu2.add(listMarca);
 
         jMenuBar1.add(jMenu2);
 
@@ -340,6 +360,22 @@ public class MenuPrincipal extends javax.swing.JFrame {
         Formularios.ListEmpresa.setVisible(true);
     }//GEN-LAST:event_ListEmpresaActionPerformed
 
+    private void CadMarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadMarcaActionPerformed
+        // TODO add your handling code here:
+         if(Formularios.CadMarca == null)
+            Formularios.CadMarca = new CadMarca();
+        
+        Formularios.CadMarca.setVisible(true);
+    }//GEN-LAST:event_CadMarcaActionPerformed
+
+    private void listMarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listMarcaActionPerformed
+        // TODO add your handling code here:
+        if(Formularios.ListMarca == null)
+            Formularios.ListMarca = new ListMarca();
+        
+        Formularios.ListMarca.setVisible(true);
+    }//GEN-LAST:event_listMarcaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -382,6 +418,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem CadEnd;
     private javax.swing.JMenuItem CadFuncao;
     private javax.swing.JMenuItem CadFuncionario;
+    private javax.swing.JMenuItem CadMarca;
     private javax.swing.JMenuItem CadPessoa;
     private javax.swing.JMenuItem ListCid;
     private javax.swing.JMenuItem ListEmpresa;
@@ -396,5 +433,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMoS;
     private javax.swing.JMenu jMorc;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JMenuItem listMarca;
     // End of variables declaration//GEN-END:variables
 }

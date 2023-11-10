@@ -24,6 +24,7 @@ com\mycompany\visao\pessoa\CadPessoa$1.class
 com\mycompany\dao\DaoCliente.class
 com\mycompany\visao\funcionario\CadFuncionario$5.class
 com\mycompany\visao\cidade\CadCidade$3.class
+com\mycompany\visao\marca\CadMarca$3.class
 com\mycompany\visao\funcao\CadFuncao.class
 com\mycompany\visao\empresa\ListEmpresa$3.class
 com\mycompany\visao\gpServico\ListGpServico.class
@@ -37,6 +38,8 @@ com\mycompany\visao\empresa\CadEmpresa.class
 com\mycompany\visao\endereco\ListEndereco$4.class
 com\mycompany\visao\principal\MenuPrincipal$13.class
 com\mycompany\visao\endereco\CadEndereco$5.class
+com\mycompany\visao\marca\ListMarca$4.class
+com\mycompany\visao\marca\CadMarca$2.class
 com\mycompany\modelo\ModPessoa.class
 com\mycompany\visao\funcionario\ListFuncionario.class
 com\mycompany\visao\principal\MenuPrincipal$5.class
@@ -53,9 +56,11 @@ com\mycompany\visao\endereco\CadEndereco.class
 com\mycompany\visao\principal\MenuPrincipal$4.class
 com\mycompany\visao\pessoa\CadPessoa$3.class
 com\mycompany\visao\gpServico\ListGpServico$1.class
+com\mycompany\visao\marca\ListMarca$3.class
 com\mycompany\visao\endereco\ListEndereco$5.class
 com\mycompany\visao\pessoa\ListPessoa$3.class
 com\mycompany\visao\cidade\ListCidade$1.class
+com\mycompany\visao\marca\ListMarca$5.class
 com\mycompany\visao\funcao\ListFuncao$5.class
 com\mycompany\visao\principal\MenuPrincipal$11.class
 com\mycompany\visao\cidade\CadCidade$1.class
@@ -65,6 +70,7 @@ com\mycompany\visao\empresa\ListEmpresa$1.class
 com\mycompany\visao\funcionario\CadFuncionario$7.class
 com\mycompany\dao\DaoCidade.class
 com\mycompany\visao\funcionario\CadFuncionario$4.class
+com\mycompany\visao\marca\ListMarca$2.class
 com\mycompany\visao\cidade\ListCidade$2.class
 com\mycompany\visao\empresa\ListEmpresa$4.class
 com\mycompany\dao\DaoEmpresa.class
@@ -76,6 +82,7 @@ com\mycompany\visao\principal\MenuPrincipal$9.class
 com\mycompany\visao\endereco\CadEndereco$7.class
 com\mycompany\visao\funcionario\CadFuncionario$1.class
 com\mycompany\visao\funcao\ListFuncao$2.class
+com\mycompany\visao\principal\MenuPrincipal$17.class
 com\mycompany\visao\empresa\CadEmpresa$3.class
 com\mycompany\ferramentas\DadosTemporarios.class
 com\mycompany\visao\funcionario\ListFuncionario$5.class
@@ -89,6 +96,7 @@ com\mycompany\visao\funcionario\ListFuncionario$2.class
 com\mycompany\visao\principal\MenuPrincipal$14.class
 com\mycompany\visao\endereco\CadEndereco$8.class
 com\mycompany\visao\marca\ListMarca.class
+com\mycompany\visao\principal\MenuPrincipal$16.class
 com\mycompany\visao\principal\MenuPrincipal$8.class
 com\mycompany\visao\endereco\CadEndereco$1.class
 com\mycompany\visao\pessoa\CadPessoa.class
@@ -121,6 +129,7 @@ com\mycompany\visao\principal\MenuPrincipal.class
 com\mycompany\visao\principal\MenuPrincipal$7.class
 com\mycompany\modelo\ModEmpresa.class
 com\mycompany\dao\DaoFuncionario.class
+com\mycompany\visao\marca\ListMarca$6.class
 com\mycompany\visao\funcao\ListFuncao$6.class
 com\mycompany\visao\funcao\ListFuncao.class
 com\mycompany\visao\funcao\CadFuncao$2.class
