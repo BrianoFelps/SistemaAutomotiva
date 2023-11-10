@@ -30,6 +30,9 @@ public class Formularios {
     public static JFrame ListMarca;
     public static JFrame CadGpServico;
     public static JFrame ListGpServico;
-    
+    public static JFrame CadVeiculo;
+    public static JFrame ListVeiculo;
+    public static JFrame CadProdServ;
+    public static JFrame ListProdServ;
     //
 }
