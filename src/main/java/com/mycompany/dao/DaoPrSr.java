@@ -64,7 +64,7 @@ public class DaoPrSr extends BancoDeDadosMySQL{
     
     public Boolean excluir(int id){
     try{
-        sql = "DELETE FROM PRODUTOSSERVICOS WHERE ID = W";
+        sql = "DELETE FROM PRODUTOSSERVICOS WHERE ID = ?";
         
         setStatement(getConexao().prepareStatement(sql));
         
